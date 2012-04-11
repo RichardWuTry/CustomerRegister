@@ -11,7 +11,7 @@ $mail->Username = 'register@1singlestep.com';
 $mail->Password = 'BaoChangJi';
 $mail->CharSet='UTF-8';
 
-$mail->From = 'shadow_wu82@163.com';
+$mail->From = 'register@1singlestep.com';
 $mail->FromName = 'Richard';
 
 $mail->AddAddress('wu.chen@chinapay.com');
