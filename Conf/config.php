@@ -112,3 +112,4 @@ return  array(
 	'MAIL_REPLAY_ADDRESS'	=> 'register@1singlestep.com',
 	'MAIL_FROM_NAME'		=> 'Customer Register',
 );
+?>
