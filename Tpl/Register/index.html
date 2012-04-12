@@ -1,30 +1,69 @@
-<include file="./Tpl/Public/registerheader.html" />
-<form action="__URL__/addCustomer" method="post">
-	<table>		
-		<tr>
-			<th>Card No:</th>
-			<td><input type="input" name="card_no" placeholder="Please input card no" /></td>
-		</tr>
-		<tr>
-			<th>Name:</th>
-			<td><input type="input" name="name" placeholder="Your name" /></td>
-		</tr>
-		<tr>
-			<th>Email:</th>
-			<td><input type="email" name="email" /></td>
-		</tr>
-		<tr>
-			<th>Address:</th>
-			<td><input type="input" name="address" /></td>
-		</tr>
-		<tr>
-			<th>Mobile</th>
-			<td><input type="input" name="mobile" /></td>
-		</tr>
-		<tr>
-			<th></th>
-			<td><input type="submit" name="submit" value="Sign Up" /></td>
-		</tr>
-	</table>
-</form>
-<include file="./Tpl/Public/registerheader.html" />
+<include file="./Tpl/Public/headstart.html" />
+	<title>Customer Register</title>
+	<script src="__PUBLIC__/Js/InputValidate.js"></script>
+	<script>
+		window.onload = function() {			
+			var cardNoElement = document.getElementById('card_no');
+			cardNoElement.onblur = function() {				
+				validateNonEmpty(cardNoElement, 
+								document.getElementById('card_no_help'),
+								'<img src="__PUBLIC__/Img/error.png" /> Please enter Card Number.');
+			}
+			
+			var nameElement = document.getElementById('name');
+			nameElement.onblur = function() {
+				validateNonEmpty(nameElement, 
+								document.getElementById('name_help'),
+								'<img src="__PUBLIC__/Img/error.png" /> Please enter your name.');
+			}
+			
+			var emailElement = document.getElementById('email');
+			emailElement.onblur = function() {
+				
+			}
+		}
+	</script>
+<include file="./Tpl/Public/headend_bodystart_banner.html" />
+<div id="content">
+	<form action="__URL__/addCustomer" method="post">
+		<table>		
+			<tr>
+				<th>Card No:</th>
+				<td>
+					<input type="input" id="card_no" name="card_no" />
+					<span id="card_no_help" class="help"></span>
+				</td>
+			</tr>
+			<tr>
+				<th>Name:</th>
+				<td>
+					<input type="input" id="name" name="name" />
+					<span id="name_help" class="help"></span>
+				</td>
+			</tr>
+			<tr>
+				<th>Email:</th>
+				<td>
+					<input type="email" id="email" name="email" />
+					<span id="email_help" class="help"></span>
+				</td>
+			</tr>
+			<tr>
+				<th>Address:</th>
+				<td><input type="input" id="address" name="address" /></td>
+			</tr>
+			<tr>
+				<th>Mobile</th>
+				<td>
+					<input type="input" id="mobile" name="mobile" />
+					<span id="mobile_help" class="help"></span>
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td><input type="submit" name="submit" value="Sign Up" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<include file="./Tpl/Public/footer_bodyend.html" />

@@ -111,5 +111,10 @@ return  array(
 	'MAIL_PASSWORD'			=> 'BaoChangJi',
 	'MAIL_REPLAY_ADDRESS'	=> 'register@1singlestep.com',
 	'MAIL_FROM_NAME'		=> 'Customer Register',
+	
+	//路径映射配置
+	/*'TMPL_PARSE_STRING'=>array(
+		'__PUBLIC__'=>'/'.APP_NAME.'/Public',
+	),*/
 );
 ?>
