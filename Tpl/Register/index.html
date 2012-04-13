@@ -19,13 +19,55 @@
 			
 			var emailElement = document.getElementById('email');
 			emailElement.onblur = function() {
-				
+				validateEmail(emailElement,
+							document.getElementById('email_help'),
+							'<img src="__PUBLIC__/Img/error.png" /> Please enter an email (eg: johndoe@acme.com).');
 			}
+			
+			var mobileElement = document.getElementById('mobile');
+			mobileElement.onblur = function() {
+				validateNonEmpty(mobileElement, 
+								document.getElementById('mobile_help'),
+								'<img src="__PUBLIC__/Img/error.png" /> Please enter your mobile.');
+			}
+			
+			document.getElementById('addCustomer').onsubmit = function() {
+				return validateForm();
+			}
+		}
+		
+		function validateForm() {
+			var isFormValid = true;
+			if (!validateNonEmpty(document.getElementById('card_no'), 
+							document.getElementById('card_no_help'),
+							'<img src="__PUBLIC__/Img/error.png" /> Please enter Card Number.')) {
+				isFormValid = false;
+			}
+			
+			if (!validateNonEmpty(document.getElementById('name'), 
+							document.getElementById('name_help'),
+							'<img src="__PUBLIC__/Img/error.png" /> Please enter your name.')) {
+				isFormValid = false;
+			}
+			
+			if (!validateEmail(document.getElementById('email'),
+						document.getElementById('email_help'),
+						'<img src="__PUBLIC__/Img/error.png" /> Please enter an email (eg: johndoe@acme.com).')) {
+				isFormValid = false;
+			}
+			
+			if (!validateNonEmpty(document.getElementById('mobile'), 
+							document.getElementById('mobile_help'),
+							'<img src="__PUBLIC__/Img/error.png" /> Please enter your mobile.')) {
+				isFormValid = false;
+			} 
+			
+			return isFormValid;
 		}
 	</script>
 <include file="./Tpl/Public/headend_bodystart_banner.html" />
 <div id="content">
-	<form action="__URL__/addCustomer" method="post">
+	<form id="addCustomer" name="addCustomer" action="__URL__/addCustomer" method="post">
 		<table>		
 			<tr>
 				<th>Card No:</th>
@@ -61,7 +103,7 @@
 			</tr>
 			<tr>
 				<th></th>
-				<td><input type="submit" name="submit" value="Sign Up" /></td>
+				<td><input type="submit" id="submitForm" name="submit" value="Sign Up"/></td>
 			</tr>
 		</table>
 	</form>

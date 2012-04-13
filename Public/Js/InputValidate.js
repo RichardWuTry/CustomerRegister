@@ -53,24 +53,28 @@ function validateDate(inputField, helpText) {
 		"Please enter a date (for example, 01/14/1975).");
 }
 
-function validatePhone(inputField, helpText) {
+function validatePhone(inputField, helpText, helpMessage) {
+	helpMessage = typeof helpMessage !== 'undefined' ? helpMessage : "Please enter a phone number (for example, 123-456-7890).";
+
 	// First see if the input value contains data
-	if (!validateNonEmpty(inputField, helpText))
+	if (!validateNonEmpty(inputField, helpText, helpMessage))
 		return false;
 
 	// Then see if the input value is a phone number
 	return validateRegEx(/^\d{3}-\d{3}-\d{4}$/,
 		inputField.value, helpText,
-		"Please enter a phone number (for example, 123-456-7890).");
+		helpMessage);
 }
 
 function validateEmail(inputField, helpText, helpMessage) {
+	helpMessage = typeof helpMessage !== 'undefined' ? helpMessage : "Please enter an email address (for example, johndoe@acme.com).";
+
 	// First see if the input value contains data
-	if (!validateNonEmpty(inputField, helpText))
+	if (!validateNonEmpty(inputField, helpText, helpMessage))
 		return false;
 
 	// Then see if the input value is an email address
 	return validateRegEx(/^[\w\.-_\+]+@[\w-]+(\.\w{2,3})+$/,
 		inputField.value, helpText,
-		"Please enter an email address (for example, johndoe@acme.com).");
+		helpMessage);
 }

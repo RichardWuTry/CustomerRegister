@@ -29,7 +29,7 @@ class RegisterAction extends Action {
 					//Log::write('email:'.$email, Log::ERR);
 					//require_once COMMON_PATH.'/mail.php';
 					if (sendMail(array($email), $subject, $body)) {
-						$msg = 'Record succeed. Please receive email and activate account.';
+						$msg = 'Register succeed. Please receive email and activate account.';
 					} else {
 						$msg = 'Send activation email failed.';
 					}					
